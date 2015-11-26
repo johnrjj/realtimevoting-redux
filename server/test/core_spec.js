@@ -6,7 +6,6 @@ import {setEntries, next, vote} from '../src/core';
 describe('application logic', () => {
 
     describe('setEntries', () => {
-
         it('adds entries to the state', () => {
             const state = Map();
             const entries = List.of('The Matrix', 'Hackers');
@@ -15,7 +14,6 @@ describe('application logic', () => {
                 entries: List.of('The Matrix', 'Hackers')
             }));
         });
-
         it('converts to immutable', () => {
             const state = Map();
             const entries = ['The Matrix', 'Hackers'];
@@ -24,7 +22,6 @@ describe('application logic', () => {
                 entries: List.of('The Matrix', 'Hackers')
             }));
         });
-
     });
 
     describe('next', () => {
@@ -40,7 +37,6 @@ describe('application logic', () => {
                 })
             }));
         });
-
         it('puts winner of current vote back to entries', () => {
             const state = Map({
                 vote: Map({
@@ -60,7 +56,6 @@ describe('application logic', () => {
                 entries: List.of('Hackers')
             }));
         });
-
         it('puts tied entries of current vote back to entries', () => {
             const state = Map({
                 vote: Map({
@@ -80,7 +75,6 @@ describe('application logic', () => {
                 entries: List.of('The Matrix', 'Hackers')
             }));
         });
-
         it('marks winner when just one entry left', () => {
             const state = Map({
                 vote: Map({
@@ -118,7 +112,6 @@ describe('application logic', () => {
                 entries: List()
             }))
         });
-
         it('updates an existing tally for the vote entry', () => {
             const state = Map({
                 vote: Map({
@@ -143,5 +136,4 @@ describe('application logic', () => {
             }))
         });
     });
-
 });
