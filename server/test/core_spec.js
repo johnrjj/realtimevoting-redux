@@ -96,43 +96,31 @@ describe('application logic', () => {
     describe('vote', () => {
         it('creates a tally for the vote entry', () => {
             const state = Map({
-                vote: Map({
-                    pair: List.of('The Matrix', 'Hackers')
-                }),
-                entries: List()
+                pair: List.of('The Matrix', 'Hackers')
             });
             const nextState = vote(state, 'The Matrix');
             expect(nextState).to.equal(Map({
-                vote: Map({
-                    pair: List.of('The Matrix', 'Hackers'),
-                    tally: Map({
-                        'The Matrix': 1,
-                    })
-                }),
-                entries: List()
-            }))
+                pair: List.of('The Matrix', 'Hackers'),
+                tally: Map({
+                    'The Matrix': 1,
+                })
+            }));
         });
         it('updates an existing tally for the vote entry', () => {
             const state = Map({
-                vote: Map({
-                    pair: List.of('The Matrix', 'Hackers'),
-                    tally: Map({
-                        'The Matrix': 1,
-                        'Hackers': 3
-                    })
-                }),
-                entries: List()
+                pair: List.of('The Matrix', 'Hackers'),
+                tally: Map({
+                    'The Matrix': 1,
+                    'Hackers': 3
+                })
             });
             const nextState = vote(state, 'The Matrix');
             expect(nextState).to.equal(Map({
-                vote: Map({
-                    pair: List.of('The Matrix', 'Hackers'),
-                    tally: Map({
-                        'The Matrix': 2,
-                        'Hackers': 3
-                    })
-                }),
-                entries: List()
+                pair: List.of('The Matrix', 'Hackers'),
+                tally: Map({
+                    'The Matrix': 2,
+                    'Hackers': 3
+                })
             }))
         });
     });
